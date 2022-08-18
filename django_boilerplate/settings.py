@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', # CORS 관련 추가
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -54,7 +55,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'corsheaders.middleware.CorsMiddleware', # CORS 관련 추가
 ]
 
 
@@ -108,6 +108,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CORS_ORIGIN_WHITELIST = ['http://127.0.0.1:3000'
+                         ,'http://localhost:3000'
+                         ,'https://web-front-end-advanced-73126l6fzbqt1.gksl1.cloudtype.app']
+CORS_ALLOW_CREDENTIALS = True
 
 
 # Internationalization
