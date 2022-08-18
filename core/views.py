@@ -1,8 +1,8 @@
-
 from tracemalloc import get_object_traceback
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
+from django.shortcuts import render, HttpResponse, redirect
 
 from . import models
 from . import serializers
@@ -30,3 +30,6 @@ class CocktionaryList(APIView):
 		cocktionarys = models.Cocktionary.objects.all()
 		serializer = serializers.CocktionarySerializer(cocktionarys, many=True)
 		return Response(serializer.data)
+
+# def index(request):
+#     return HttpResponse("http response 테스트")
