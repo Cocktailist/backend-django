@@ -1,6 +1,6 @@
 from unicodedata import name
 from rest_framework import serializers
-from .models import Cocktailbar
+from .models import Cocktailbar, Cocktionary
 # class Cocktailbar_Serializer(serializers.Serializer):
 #     cocktailbar_id = serializers.CharField()
 #     cocktailbar_name = serializers.CharField()
@@ -13,4 +13,9 @@ from .models import Cocktailbar
 class BarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cocktailbar
+        fields = '__all__'
+
+class CocktionarySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cocktionary
         fields = '__all__'

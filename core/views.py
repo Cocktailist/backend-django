@@ -18,3 +18,15 @@ class BarList(APIView):
 		cocktailbars = models.Cocktailbar.objects.all()
 		serializer = serializers.BarSerializer(cocktailbars, many=True)
 		return Response(serializer.data)
+
+class CocktionaryDetail(APIView):
+	def get(self, request, id,format=None):
+		cocktionary = get_object_or_404(models.Cocktionary, pk=id)
+		serializer = serializers.CocktionarySerializer(cocktionary)
+		return Response(serializer.data)
+
+class CocktionaryList(APIView):
+	def get(self, request, format = None):
+		cocktionarys = models.Cocktionary.objects.all()
+		serializer = serializers.CocktionarySerializer(cocktionarys, many=True)
+		return Response(serializer.data)
