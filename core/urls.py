@@ -1,6 +1,10 @@
-from django.urls import path
-from .views import index
+from . import views
+from .views import BarDetail
+from django.urls import include, path
 
 urlpatterns = [
-    path('', index, name='index'),
-]
+    # localhost/cocktailbar/1
+    path('<int:id>', views.BarDetail.as_view()),
+    # localhost/cocktailbar/all
+    path('all/', views.BarList.as_view()),
+    ]
