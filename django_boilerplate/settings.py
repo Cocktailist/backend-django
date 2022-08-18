@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'rest_framework',
     
+    'corsheaders', # CORS 관련 추가
 
 ]
 
@@ -52,7 +53,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware', # CORS 관련 추가
 ]
+
+
 
 ROOT_URLCONF = 'django_boilerplate.urls'
 
