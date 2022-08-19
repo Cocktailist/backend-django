@@ -19,12 +19,23 @@ class BarDetail(APIView):
 	def get(self, request, id,format=None):
 		cocktailbar = get_object_or_404(models.Cocktailbar, pk=id)
 		serializer = serializers.BarSerializer(cocktailbar)
+
+		#cocktailbar = get_object_or_404(models.Cocktailbar, pk=id)
+		# id = cocktailbar.cocktailbar_id
+		# pngname = cocktailbar.cocktailbar_name
+		# response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
+		# response = cocktailbar.cocktailbar_img
+
+		serializer = serializers.BarSerializer(cocktailbar)
 		return Response(serializer.data)
 	
 	#수정중
 class BarDetailImg(APIView):
-	def get(self, request, format=None):
-		response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/nabillera.png', 'rb'))
+	def get(self, request,id ,format=None):
+		cocktailbar = get_object_or_404(models.Cocktailbar, pk=id)
+		id = cocktailbar.cocktailbar_id
+		pngname = cocktailbar.cocktailbar_name
+		response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
 		return response
 		
 class BarList(APIView):

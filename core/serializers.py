@@ -15,8 +15,9 @@ class BarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cocktailbar
         #이미지 테스트 해보려고 img 일단 serializer에서 배제함.
-        exclude = ['cocktailbar_img']
-        #fields = '__all__'
+        #exclude = ['cocktailbar_img']
+        fields = '__all__'
+        
 
 class CocktionarySerializer(serializers.ModelSerializer):
     class Meta:
