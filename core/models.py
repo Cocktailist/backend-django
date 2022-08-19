@@ -18,3 +18,13 @@ class Cocktionary(models.Model):
     cocktionary_cocktail_ingredients = models.TextField()
     cocktionary_cocktail_hastag = models.TextField()
     cocktionary_cocktail_recipe = models.TextField()
+
+# class Order(models.Model):
+#     order_num = models.IntegerField()
+#     order_time = models.DateField()
+#     client_id = models.CharField(max_length=15)
+#     client_cocktail = models.CharField(max_length=30)
+#     #일단은 char로 해두고 serializer로 여러개 가능한지 체크하기
+#     #일단 얘를 가져오고 얘를 serialize 해야할 것 같음..
+#     client_detail_customizing = models.CharField(max_length=30)
+#     order_check = models.BooleanField()

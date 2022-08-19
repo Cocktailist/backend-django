@@ -1,3 +1,4 @@
+from csv import excel
 from unicodedata import name
 from rest_framework import serializers
 from .models import Cocktailbar, Cocktionary
@@ -13,7 +14,9 @@ from .models import Cocktailbar, Cocktionary
 class BarSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cocktailbar
-        fields = '__all__'
+        #이미지 테스트 해보려고 img 일단 serializer에서 배제함.
+        exclude = ['cocktailbar_img']
+        #fields = '__all__'
 
 class CocktionarySerializer(serializers.ModelSerializer):
     class Meta:
