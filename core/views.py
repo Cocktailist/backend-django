@@ -36,7 +36,7 @@ class BarDetailImg(APIView):
 		id = cocktailbar.cocktailbar_id
 		pngname = cocktailbar.cocktailbar_name
 		#response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
-		response = FileResponse(open('/static/cocktailbar/'+pngname+'.png', 'rb'))
+		response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
 
 		return response
 		

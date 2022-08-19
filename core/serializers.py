@@ -1,7 +1,8 @@
 from csv import excel
+from dataclasses import field
 from unicodedata import name
 from rest_framework import serializers
-from .models import Cocktailbar, Cocktionary
+from .models import Cocktailbar, Cocktionary, Signature
 # class Cocktailbar_Serializer(serializers.Serializer):
 #     cocktailbar_id = serializers.CharField()
 #     cocktailbar_name = serializers.CharField()
@@ -22,4 +23,10 @@ class BarSerializer(serializers.ModelSerializer):
 class CocktionarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Cocktionary
+        fields = '__all__'
+
+
+class SigSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Signature
         fields = '__all__'
