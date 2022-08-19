@@ -35,9 +35,12 @@ class BarDetailImg(APIView):
 		cocktailbar = get_object_or_404(models.Cocktailbar, pk=id)
 		id = cocktailbar.cocktailbar_id
 		pngname = cocktailbar.cocktailbar_name
-		response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
+		#response = FileResponse(open(settings.BASE_DIR+'/static/cocktailbar/'+pngname+'.png', 'rb'))
+		response = FileResponse(open('/static/cocktailbar/'+pngname+'.png', 'rb'))
+
 		return response
 		
+#http://127.0.0.1:8000/cocktailbar/test/1
 class BarList(APIView):
 	def get(self, request, format = None):
 		cocktailbars = models.Cocktailbar.objects.all()
